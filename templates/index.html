@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <link href="/static/node_modules/layui/dist/css/layui.css" rel="stylesheet">
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .move-down {
+            margin-top: 50px;
+        }
+
+        .from-down {
+            margin-top: 80px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo layui-hide-xs layui-bg-black">首页</div>
+
+            <ul class="layui-nav layui-layout-left">
+                <!-- 移动端显示 -->
+                <li class="layui-nav-item layui-hide-xs">
+                    <span><a href="/det">数量预测</a></span>
+                </li>
+            </ul>
+
+            <!-- 头部区域（可配合layui 已有的水平导航） -->
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item layui-hide layui-show-sm-inline-block">
+                    <a href="/admin">
+                        <img src="//unpkg.com/outeres@0.0.10/img/layui/icon-v2.png" class="layui-nav-img">
+                        用户
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">退出登录</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-more-vertical"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="/det">数量预测</a>
+
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="/evaluate">模型评估</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="layui-body">
+
+            <!-- 内容主体区域 -->
+            <div class="container">
+                <form action="{{ url_for('predict')}}" method="post" class="from-down layui-form">
+                    <!-- 这一块是用户输入自定义数据 -->
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">日期</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="day"  autocomplete="off" class="layui-input"
+                                placeholder="" required="required" />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">季节</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="season"  autocomplete="off" class="layui-input"
+                                    placeholder="" required="required" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">假期</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="holiday"  autocomplete="off" class="layui-input"
+                                placeholder="" required="required" />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">天气</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="weather"  autocomplete="off" class="layui-input"
+                                placeholder="" required="required" />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">工作日</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="wokingday"  autocomplete="off" class="layui-input"
+                                    placeholder="" required="required" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">温度</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="temp"  autocomplete="off" class="layui-input"
+                                placeholder="" required="required" />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">体感温度</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="atemp"  autocomplete="off" class="layui-input"
+                                placeholder="" required="required" />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">湿度</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="humidity"  autocomplete="off" class="layui-input"
+                                placeholder="" required="required" />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">风速</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="windspeed"  autocomplete="off" class="layui-input"
+                                placeholder="" required="required" />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">常驻人口</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="casual"  autocomplete="off" class="layui-input"
+                                placeholder="" required="required" />
+                        </div>
+                    </div>
+                     <div class="layui-form-item">
+                        <label class="layui-form-label">流动人口</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="registered"  autocomplete="off" class="layui-input"
+                                placeholder="" required="required" />
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">联动选择框</label>
+                        <div class="layui-input-inline">
+                            <select name="quiz1">
+                                <option value="">请选择省</option>
+                                <option value="浙江" selected>浙江省</option>
+                                <option value="你的工号">江西省</option>
+                                <option value="你最喜欢的老师">福建省</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline">
+                            <select name="quiz2">
+                                <option value="">请选择市</option>
+                                <option value="杭州">杭州</option>
+                                <option value="宁波" disabled>宁波</option>
+                                <option value="温州">温州</option>
+                                <option value="温州">台州</option>
+                                <option value="温州">绍兴</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline">
+                            <select name="quiz3">
+                                <option value="">请选择县/区</option>
+                                <option value="西湖区">西湖区</option>
+                                <option value="余杭区">余杭区</option>
+                                <option value="拱墅区">临安市</option>
+                            </select>
+                        </div>
+                    </div>
+<div>{{ prediction_text }}</div>
+                    <br><br>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button type="submit" class="layui-btn layui-btn-primary">提交</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            <div class="layui-row">
+                <div class="layui-col-md6">
+                    <div class="grid-demo grid-demo-bg1">
+                        <span>NMZU</span>
+                    </div>
+                </div>
+                <div class="layui-col-md6">
+                    <div class="grid-demo">
+                        <span style="float: right;">Copyrigth © 2023 by PCDL233</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/static/node_modules/layui/dist/layui.js"></script>
+    <script>
+        layui.use(['form', 'laydate', 'util'], function () {
+            var form = layui.form;
+            var layer = layui.layer;
+            var laydate = layui.laydate;
+            var util = layui.util;
+
+            // 自定义验证规则
+            form.verify({
+                pass: function (value) {
+                    if (!/(.+){6,12}$/.test(value)) {
+                        return '密码必须 6 到 12 位';
+                    }
+                }
+            });
+
+            // 提交事件
+            form.on('submit(demo1)', function (data) {
+                var field = data.field; // 获取表单字段值
+                // 显示填写结果，仅作演示用
+                layer.alert(JSON.stringify(field), {
+                    title: '当前填写的字段值'
+                });
+                // 此处可执行 Ajax 等操作
+                // …
+                return false; // 阻止默认 form 跳转
+            });
+        });
+        //JS 
+        layui.use(['element', 'layer', 'util'], function () {
+            var element = layui.element;
+            var layer = layui.layer;
+            var util = layui.util;
+            var $ = layui.$;
+
+            //头部事件
+            util.event('lay-header-event', {
+                menuRight: function () {  // 右侧菜单事件
+                    layer.open({
+                        type: 1,
+                        title: '关于作者',
+                        content: '<div style="padding: 15px;"><a href="/author">点击跳转：作者信息</a></div>',
+                        area: ['260px', '100%'],
+                        offset: 'rt', // 右上角
+                        anim: 'slideLeft', // 从右侧抽屉滑出
+                        shadeClose: true,
+                        scrollbar: false
+                    });
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

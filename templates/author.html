@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <link href="/static/node_modules/layui/dist/css/layui.css" rel="stylesheet">
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo layui-hide-xs layui-bg-black">关于</div>
+            <ul class="layui-nav layui-layout-left">
+                <!-- 移动端显示 -->
+                <li class="layui-nav-item layui-hide-xs">
+                    <span><a href="author.html">作者信息</a></span>
+                </li>
+            </ul>
+        </div>
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="/det">首页</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+
+            <div class="layui-bg-gray" style="padding: 20px;">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-md6">
+                        <div class="layui-card">
+                            <div class="layui-card-header">PCDL233</div>
+                            <div class="layui-card-body">
+                                前端
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <div class="layui-card">
+                            <div class="layui-card-header">Hrzmxn</div>
+                            <div class="layui-card-body">
+                                后端
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-md6">
+                        <div class="layui-card">
+                            <div class="layui-card-header">xx</div>
+                            <div class="layui-card-body">
+                                xxxxx
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <div class="layui-card">
+                            <div class="layui-card-header">xx</div>
+                            <div class="layui-card-body">
+                            xxxxxx
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-footer">
+                <!-- 底部固定区域 -->
+                <div class="layui-row">
+                    <div class="layui-col-md6">
+                        <div class="grid-demo grid-demo-bg1">
+                            <span>NMZU</span>
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <div class="grid-demo">
+                            <span style="float: right;">Copyrigth © 2023 by PCDL233</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+</body>
+
+</html>

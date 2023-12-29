@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <link href="/static/node_modules/layui/dist/css/layui.css" rel="stylesheet">
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .move-down {
+            margin-top: 50px;
+        }
+
+        .center-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            /* 100%视窗高度，可以根据需要调整 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo layui-hide-xs layui-bg-black">模型评估</div>
+
+            <ul class="layui-nav layui-layout-left">
+                <!-- 移动端显示 -->
+                <li class="layui-nav-item layui-hide-xs">
+                    <span><a href="/evaluate">模型评估</a></span>
+                </li>
+            </ul>
+
+            <!-- 头部区域（可配合layui 已有的水平导航） -->
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item layui-hide layui-show-sm-inline-block">
+                    <a href="/admin">
+                        <img src="//unpkg.com/outeres@0.0.10/img/layui/icon-v2.png" class="layui-nav-img">
+                        用户
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">退出登录</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-more-vertical"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="/det">数量预测</a>
+
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="/evaluate">模型评估</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div class="center-wrapper">
+                <div class="layui-carousel" id="ID-carousel-demo-image">
+                    <div carousel-item>
+                        <div><img src="/static/热度图.png" title="热度图"></div>
+                        <div><img src="/static/特征值箱图.png" title="特征值箱图"></div>
+                        <div><img src="/static/处理后的风速箱线图.png" title="处理后的风速箱线图"></div>
+                        <div><img src="/static/随机森林预测结果.png" title="随机森林预测结果"></div>
+                        <div><img src="/static/特征重要性可视化.png" title="特征重要性可视化"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            <div class="layui-row">
+                <div class="layui-col-md6">
+                    <div class="grid-demo grid-demo-bg1">
+                        <span>NMZU</span>
+                    </div>
+                </div>
+                <div class="layui-col-md6">
+                    <div class="grid-demo">
+                        <span style="float: right;">Copyrigth © 2023 by PCDL233</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/static/node_modules/layui/dist/layui.js"></script>
+    <script>
+        layui.use(function () {
+            var carousel = layui.carousel;
+            // 渲染 - 图片轮播
+            carousel.render({
+                elem: '#ID-carousel-demo-image',
+                width: '1000px',
+                height: '600px',
+                interval: 3000
+            });
+        });
+        layui.use(['form', 'laydate', 'util'], function () {
+            var form = layui.form;
+            var layer = layui.layer;
+            var laydate = layui.laydate;
+            var util = layui.util;
+            // 提交事件
+            form.on('submit(demo1)', function (data) {
+                var field = data.field; // 获取表单字段值
+                // 显示填写结果，仅作演示用
+                layer.alert(JSON.stringify(field), {
+                    title: '当前填写的字段值'
+                });
+                // 此处可执行 Ajax 等操作
+                // …
+                return false; // 阻止默认 form 跳转
+            });
+        });
+        //JS 
+        layui.use(['element', 'layer', 'util'], function () {
+            var element = layui.element;
+            var layer = layui.layer;
+            var util = layui.util;
+            var $ = layui.$;
+
+            //头部事件
+            util.event('lay-header-event', {
+                menuRight: function () {  // 右侧菜单事件
+                    layer.open({
+                        type: 1,
+                        title: '关于作者',
+                        content: '<div style="padding: 15px;"><a href="/author">作者信息</a></div>',
+                        area: ['260px', '100%'],
+                        offset: 'rt', // 右上角
+                        anim: 'slideLeft', // 从右侧抽屉滑出
+                        shadeClose: true,
+                        scrollbar: false
+                    });
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
