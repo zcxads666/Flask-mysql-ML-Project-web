@@ -1,0 +1,9 @@
+config==0.5.1
+Flask   #下最新
+Flask_Admin==1.6.1
+flask_sqlalchemy==3.1.1
+MarkupSafe==2.1.3
+numpy
+PyMySQL==1.1.0
+Werkzeug    #下最新
+WTForms==3.1.1
