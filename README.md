@@ -22,7 +22,7 @@
 >* [mysql数据库配置教程](https://blog.csdn.net/weixin_45851945/article/details/114287877)<br>
 ### 二.安装好后，想偷懒可以直接复制我的命令配置
 <br>
-**打开cmd**
+** 打开cmd **
 <br>
 <pre><code>
 net start mysql  #启动MySQL
