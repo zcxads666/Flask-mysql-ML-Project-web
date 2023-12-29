@@ -20,22 +20,28 @@
 >* [mysql数据库安装教程](https://blog.csdn.net/a802976/article/details/119255644
 )
 >* [mysql数据库配置教程](https://blog.csdn.net/weixin_45851945/article/details/114287877)<br>
-### 二.安装好后，想偷懒可以直接复制我的命令配置
+### 二.数据库安装好后，想偷懒可以直接复制我的命令配置
 <br>
 打开cmd
 <br>
 <pre><code>
 net start mysql  #启动MySQL
 
+
 mysql -uroot -p  #连接 输入完后回车，会让你输入你的密码
+
 
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'root'; #修改密码为root
 
+
 create database db1; #新建数据库'db1'
+
 
 use db1; #打开数据库'db1'
 
+
 create table user(name varchar(10),password varchar(20)); #创建用户‘user’表 
+
  
 show create table user;  #查看效果，有即添加成功
 
