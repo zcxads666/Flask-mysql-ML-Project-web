@@ -24,7 +24,7 @@
 <br>
 **打开cmd**
 <br>
-```
+<pre><code>
 net start mysql  #启动MySQL
 
 mysql -uroot -p  #连接 输入完后回车，会让你输入你的密码
@@ -40,7 +40,7 @@ create table user(name varchar(10),password varchar(20)); #创建用户‘user�
 show create table user;  #查看效果，有即添加成功
 
 
-```
+</code></pre>
 
 ## 项目贡献/参考
 
