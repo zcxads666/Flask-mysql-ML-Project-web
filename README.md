@@ -54,6 +54,7 @@ show create table user;  #查看效果，有即添加成功
 <pre><code>
 python app.py
  #或者打开编译器，直接运行app.py文件
+ #浏览器输入172.0.0.1:5000进入网站
 </code></pre>
 
 ## 项目贡献/参考
