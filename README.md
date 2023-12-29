@@ -9,6 +9,9 @@
 > * 后端（Flask）
 > * 数据库（MySQL）
 > * 模型保存、训练（sklearn）
+<br>
+输入/admin 进入后台（功能为完善，仅展示）
+
 
 ### 一. 如何使用
 1.pip安装**requirements.txt**中的python库，不用特别限制库的版本，安最新的即可
