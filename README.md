@@ -63,4 +63,4 @@ python app.py
 前端代码贡献[@PCDL233](https://github.com/PCDL233)<br>
 模型训练部分[@hczs](https://github.com/hczs/data-mining)
 
-## [项目效果展示]()
+## [项目效果展示](https://blog.csdn.net/zcxads/article/details/135291921)
