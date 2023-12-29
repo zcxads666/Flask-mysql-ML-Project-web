@@ -50,10 +50,16 @@ show create table user;  #查看效果，有即添加成功
 
 
 </code></pre>
+### 三.运行
+<pre><code>
+python app.py
+ #或者打开编译器，直接运行app.py文件
+</code></pre>
 
 ## 项目贡献/参考
+
 
 前端代码贡献[@PCDL233](https://github.com/PCDL233)<br>
 模型训练部分[@hczs](https://github.com/hczs/data-mining)
 
-##[项目效果展示]()
+## [项目效果展示]()
